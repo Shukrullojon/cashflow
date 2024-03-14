@@ -27,3 +27,12 @@ Route::resource('position', \App\Http\Controllers\PositionController::class);
 
 Route::resource('roles', \App\Http\Controllers\RoleController::class);
 Route::resource('permissions', \App\Http\Controllers\PermissionController::class);
+
+Route::get('/test_bot',function (){
+    $model = User::first();
+    \Illuminate\Support\Facades\Http::post('https://api.telegram.org/bot7163412262:AAEe4_eAyM42zgYS9zegoGBZ_aRiGiDztqg/sendMessage',[
+        'chat_id' => 789526554,
+        'text' => 'Hello world',
+        'parse_mode' => 'html'
+    ]);
+});
