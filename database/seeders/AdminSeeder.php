@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
         $user = User::create([
             'name' => 'Shukrullo',
             'email' => 'shukrullo@gmail.com',
-            'password' => Hash::make('123456'),
+            'password' => Hash::make('12345678'),
         ]);
         $role = Role::create(['name' => 'Admin']);
         $permissions = Permission::pluck('id', 'id')->all();
@@ -27,9 +27,9 @@ class AdminSeeder extends Seeder
         $user->assignRole([$role->id]);
 
         $user1 = User::create([
-            'name' => 'Sanjar',
-            'email' => 'sanjar@gmail.com',
-            'password' => Hash::make('123456'),
+            'name' => 'Tohir',
+            'email' => 'tohir@gmail.com',
+            'password' => Hash::make('12345678'),
         ]);
         $user1->assignRole([$role->id]);
     }

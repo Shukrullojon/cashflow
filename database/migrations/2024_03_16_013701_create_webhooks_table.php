@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('departments', function (Blueprint $table) {
+        Schema::create('webhooks', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable();
-            $table->string('code')->nullable();
-            $table->tinyInteger('status')->default(0)->comment("0 -> in active, 1 -> active");
+            $table->json('request')->nullable();
+            $table->json('response')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('departments');
+        Schema::dropIfExists('webhooks');
     }
 };

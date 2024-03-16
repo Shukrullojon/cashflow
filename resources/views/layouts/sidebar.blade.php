@@ -17,27 +17,6 @@
                     </a>
                 </li>
 
-                <li class="nav-item">
-                    <a href="{{ route('employee.index') }}" class="nav-link {{ Request::is('employee*') ? "active":'' }}">
-                        <i class="fa fa-users"></i>
-                        <p>Сотрудник</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('department.index') }}" class="nav-link {{ Request::is('department*') ? "active":'' }}">
-                        <i class="fa fa-directions"></i>
-                        <p>Отделы</p>
-                    </a>
-                </li>
-
-                <li class="nav-item">
-                    <a href="{{ route('position.index') }}" class="nav-link {{ Request::is('position*') ? "active":'' }}">
-                        <i class="fa fa-poo-storm"></i>
-                        <p>Должность</p>
-                    </a>
-                </li>
-
 
                 <li class="nav-item {{ (Request::is('roles*') or Request::is('permissions*')) ? 'menu-open' : '' }}">
                     <a href="#" class="nav-link {{ (Request::is('roles*') or Request::is('permissions*')) ? 'active' : '' }}">
