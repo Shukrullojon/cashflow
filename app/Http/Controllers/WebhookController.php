@@ -11,6 +11,10 @@ class WebhookController extends Controller
 {
     public function index(Request $request){
         $data = $request->all();
+        Webhook::create([
+            'request' => json_encode($data),
+        ]);
+        
         if (isset($data['message'])) {
             $message = $data['message'];
             $chat_id = $message['chat']['id'];
