@@ -18,6 +18,7 @@ class TelegramService
      * @param string $text The text of the message to be sent.
      * @return mixed The result of the API call.
      */
+
     public static function sendMessage($chat_id, $text,$reply_markup = null)
     {
         return TelegramGateway::send([
