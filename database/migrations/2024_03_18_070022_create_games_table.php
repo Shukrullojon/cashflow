@@ -22,6 +22,7 @@ return new class extends Migration
             $table->unsignedBigInteger('money')->nullable();
             $table->unsignedBigInteger('purpose_money')->nullable();
             $table->tinyInteger('random')->default(0);
+            $table->unsignedBigInteger('circle_card_id')->nullable()->comment("user qaysi kartaga kelib qolgani!");
             $table->timestamps();
         });
     }
