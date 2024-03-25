@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use App\Models\Lang;
 use App\Models\Work;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class WorkSeeder extends Seeder

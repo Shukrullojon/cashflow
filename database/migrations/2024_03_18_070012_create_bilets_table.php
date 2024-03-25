@@ -20,6 +20,7 @@ return new class extends Migration
             $table->bigInteger('investment')->nullable();
             $table->bigInteger('income')->nullable();
             $table->bigInteger('additional')->nullable();
+            $table->bigInteger("one_price")->nullable()->comment("Mavsumiy biznes uchun");
             $table->tinyInteger('risk_1')->nullable();
             $table->tinyInteger('risk_2')->nullable();
             $table->bigInteger('spend')->nullable()->comment("Xarajatlar uchun!");
