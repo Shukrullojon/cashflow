@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('game_bilet', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('game_id');
+            $table->unsignedBigInteger('game_player_id');
             $table->unsignedBigInteger('bilet_id');
             $table->tinyInteger('status')->default(0)->comment("4 -> active, 21 -> close");
             $table->timestamps();

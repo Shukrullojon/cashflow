@@ -12,4 +12,14 @@ class GameBilet extends Model
     protected $table = 'game_bilet';
 
     protected $guarded = [];
+    
+    public function bilet()
+    {
+        return $this->belongsTo(Bilet::class, 'bilet_id', 'id');
+    }
+
+    public function player()
+    {
+        return $this->hasOne(GamePlayer::class,'id','game_player_id');
+    }
 }
