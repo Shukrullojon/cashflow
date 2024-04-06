@@ -34,8 +34,8 @@ class Handler extends ExceptionHandler
         $text = (string) view('telegram.error',[
             'info' => $e
         ]);
-        Http::post('https://api.telegram.org/bot7163412262:AAEe4_eAyM42zgYS9zegoGBZ_aRiGiDztqg/sendMessage',[
-            'chat_id' => 789526554,
+        Http::post('https://api.telegram.org/bot'.config('custom.bot_token').'/sendMessage',[
+            'chat_id' => config('custom.my_chat_id'),
             'text' => $text,
             'parse_mode' => 'html'
         ]);

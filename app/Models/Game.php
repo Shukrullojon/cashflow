@@ -12,4 +12,9 @@ class Game extends Model
     protected $table = 'games';
 
     protected $guarded = [];
+
+    public function players()
+    {
+        return $this->hasMany(GamePlayer::class,'game_id', 'id');
+    }
 }

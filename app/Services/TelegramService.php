@@ -19,14 +19,35 @@ class TelegramService
      * @return mixed The result of the API call.
      */
 
-    public static function sendMessage($chat_id, $text,$reply_markup = null)
+    public static function sendMessage($chat_id, $text,$reply_markup = null, $parse_mode = null)
     {
         return TelegramGateway::send([
             'chat_id' => $chat_id,
             'text' => $text,
             'reply_markup' => $reply_markup,
+            'parse_mode' => $parse_mode,
         ], 'sendMessage');
     }
 
 
+    public static function editMessageText($chat_id, $message_id, $text, $reply_markup=null, $parse_mode = null)
+    {
+        return TelegramGateway::send([
+            'chat_id' => $chat_id,
+            'message_id' => $message_id,
+            'text' => $text,
+            'reply_markup' => $reply_markup,
+            'parse_mode' => $parse_mode,
+        ],'editMessageText');
+    }
+
+    public static function deleteMessage($chat_id, $message_id)
+    {
+        return TelegramGateway::send([
+            'chat_id' => $chat_id,
+            'message_id' => $message_id,
+        ],'deleteMessage');
+    }
 }
+
+

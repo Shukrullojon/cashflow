@@ -13,16 +13,11 @@ return new class extends Migration
     {
         Schema::create('games', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('group_id');
-            $table->unsignedBigInteger('chat_id');
-            $table->tinyInteger('status')->default(0);
-            $table->unsignedBigInteger('circle_id')->nullable();
-            $table->bigInteger('month')->nullable();
-            $table->tinyInteger('childs')->nullable();
-            $table->unsignedBigInteger('money')->nullable();
-            $table->unsignedBigInteger('purpose_money')->nullable();
-            $table->tinyInteger('random')->default(0);
-            $table->unsignedBigInteger('circle_card_id')->nullable()->comment("user qaysi kartaga kelib qolgani!");
+            $table->string("group_id");
+            $table->string("message_id");
+            $table->tinyInteger("step")->default(0);
+            $table->tinyInteger("status")->default(0);
+            $table->tinyInteger("count")->default(0);
             $table->timestamps();
         });
     }

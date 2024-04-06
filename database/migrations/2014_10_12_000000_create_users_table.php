@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->rememberToken()->nullable();
             $table->string('name')->nullable();
-            $table->bigInteger('chat_id')->nullable();
+            $table->string('chat_id')->unique()->nullable();
             $table->string('phone',20)->nullable();
             $table->string('first_name',50)->nullable();
             $table->string('last_name',50)->nullable();
