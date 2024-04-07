@@ -13,4 +13,8 @@ class Circle extends Model
 
     protected $guarded = [];
 
+    public function lang()
+    {
+        return $this->belongsTo(Lang::class);
+    }
 }

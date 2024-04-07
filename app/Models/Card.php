@@ -12,4 +12,9 @@ class Card extends Model
     protected $table = 'cards';
 
     protected $guarded = [];
+
+    public function circle()
+    {
+        return $this->belongsTo(Circle::class);
+    }
 }

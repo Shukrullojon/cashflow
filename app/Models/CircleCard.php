@@ -17,4 +17,9 @@ class CircleCard extends Model
     {
         return $this->belongsTo(Card::class);
     }
+
+    public function circle()
+    {
+        return $this->belongsTo(Circle::class);
+    }
 }

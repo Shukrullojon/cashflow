@@ -22,7 +22,7 @@ class LangSeeder extends Seeder
                 'status' => 1,
             ],
             [
-                'name' => 'Eng',
+                'name' => 'En',
                 'status' => 1,
             ],
         ];

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('circle_id');
             $table->unsignedBigInteger('card_id');
+            $table->string("gif")->nullable();
             $table->tinyInteger('salary')->default(0);
             $table->tinyInteger('start')->default(0);
             $table->tinyInteger('status')->default(0);
