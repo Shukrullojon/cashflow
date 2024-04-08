@@ -45,7 +45,20 @@ class CircleCardController extends Controller
             'start' => 'required',
             'status' => 'required',
         ]);
-        CircleCard::create($request->all());
+        $videoName = null;
+        if ($request->hasFile('gif')) {
+            $video = $request->file('gif');
+            $videoName = time().'.'.$video->getClientOriginalExtension();
+            $video->move(public_path('data/gifs'), $videoName);
+        }
+        CircleCard::create([
+            'circle_id' => $request->circle_id,
+            'card_id' => $request->card_id,
+            'salary' => $request->salary,
+            'start' => $request->start,
+            'status' => $request->status,
+            'gif' => $videoName,
+        ]);
         return redirect()->route('ccard.index')->with('success','Circle Card created successfully');
     }
 
@@ -68,7 +81,6 @@ class CircleCardController extends Controller
         $circlecard = CircleCard::find($id);
         $circles = Circle::all()->pluck('name','id');
         $cards = Card::all()->pluck('name','id');
-
         return view('circlecard.edit',[
             'circlecard' => $circlecard,
             'circles' => $circles,
@@ -89,7 +101,22 @@ class CircleCardController extends Controller
             'status' => 'required',
         ]);
         $circlecard = CircleCard::find($id);
-        $circlecard->update($request->all());
+        $videoName = $circlecard->gif;
+        if ($request->hasFile('gif')) {
+            if (!empty($videoName) and file_exists(public_path('data/gifs/'.$videoName)))
+                unlink(public_path('data/gifs/'.$videoName));
+            $video = $request->file('gif');
+            $videoName = time().'.'.$video->getClientOriginalExtension();
+            $video->move(public_path('data/gifs'), $videoName);
+        }
+        $circlecard->update([
+            'circle_id' => $request->circle_id,
+            'card_id' => $request->card_id,
+            'salary' => $request->salary,
+            'start' => $request->start,
+            'status' => $request->status,
+            'gif' => $videoName,
+        ]);
         return redirect()->route('ccard.index')
             ->with('success','Circle Card updated successfully');
     }

@@ -47,7 +47,7 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link">
+                    <a href="{{ route('bilet.index') }}" class="nav-link {{ Request::is('bilet*') ? "active":'' }}">
                         <i class="fa fa-ticket-alt"></i>
                         <p>Bilet</p>
                     </a>

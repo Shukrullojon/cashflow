@@ -12,4 +12,9 @@ class Bilet extends Model
     protected $table = 'bilets';
 
     protected $guarded = [];
+
+    public function card()
+    {
+        return $this->belongsTo(Card::class);
+    }
 }

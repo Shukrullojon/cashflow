@@ -24,7 +24,7 @@
         @endif
 
 
-        {!! Form::open(array('route' => 'circle.store','method'=>'POST')) !!}
+        {!! Form::open(array('route' => 'ccard.store','method'=>'POST','enctype' => 'multipart/form-data')) !!}
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
@@ -42,22 +42,29 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
+                    <strong>Gif:</strong>{!! Form::label('*',"*",['style'=>"color:red"]) !!}
+                    {!! Form::file('gif', null, ['class' => 'form-control']) !!}
+                </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="form-group">
                     <strong>Salary:</strong>{!! Form::label('*',"*",['style'=>"color:red"]) !!}
-                    {!! Form::text('salary', null, array('placeholder' => 'Salary','class' => 'form-control')) !!}
+                    {!! Form::select('salary', \App\Helpers\StatusHelper::$circleCardSalary,null, ['class' => 'form-control']) !!}
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Start:</strong>{!! Form::label('*',"*",['style'=>"color:red"]) !!}
-                    {!! Form::text('start', null, array('placeholder' => 'Start','class' => 'form-control')) !!}
+                    {!! Form::select('start', \App\Helpers\StatusHelper::$circleCardStart,null, ['class' => 'form-control']) !!}
                 </div>
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Status:</strong>{!! Form::label('*',"*",['style'=>"color:red"]) !!}
-                    {!! Form::text('status', null, array('placeholder' => 'Status','class' => 'form-control')) !!}
+                    {!! Form::select('status', \App\Helpers\StatusHelper::$circleCardStatus,null, ['class' => 'form-control']) !!}
                 </div>
             </div>
 

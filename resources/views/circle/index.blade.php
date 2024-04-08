@@ -33,7 +33,7 @@
                     <td>{{ $circle->name }}</td>
                     <td>{{ $circle->info }}</td>
                     <td>{{ $circle->lang->name ?? '' }}</td>
-                    <td>{{ $circle->status }}</td>
+                    <td>{{ \App\Helpers\StatusHelper::circleStatusGet($circle->status) }}</td>
                     <td>
                         <div class="btn-group">
                             <a class="" style="margin-right: 10px" href="{{ route('circle.show',$circle->id) }}">

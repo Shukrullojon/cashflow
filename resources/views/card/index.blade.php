@@ -31,7 +31,7 @@
                 <tr>
                     <td>{{ $card->name }}</td>
                     <td>{{ $card->circle->name ?? '' }}</td>
-                    <td>{{ $card->status }}</td>
+                    <td>{{ \App\Helpers\StatusHelper::cardStatusGet($card->status) }}</td>
                     <td>
                         <div class="btn-group">
                             <a class="" style="margin-right: 10px" href="{{ route('card.show',$card->id) }}">

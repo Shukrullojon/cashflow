@@ -25,17 +25,17 @@
 
                 <div class="form-group">
                     <strong>Salry:</strong>
-                    {{ $circlecard->salary }}
+                    {{ \App\Helpers\StatusHelper::circleCardSalaryGet($circlecard->salary) }}
                 </div>
 
                 <div class="form-group">
                     <strong>Start:</strong>
-                    {{ $circlecard->start }}
+                    {{ \App\Helpers\StatusHelper::circleCardStartGet($circlecard->start) }}
                 </div>
 
                 <div class="form-group">
                     <strong>Status</strong>
-                    {{ $circlecard->status }}
+                    {{ \App\Helpers\StatusHelper::circleCardStatusGet($circlecard->status) }}
                 </div>
             </div>
         </div>

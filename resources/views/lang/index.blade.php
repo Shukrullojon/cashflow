@@ -24,12 +24,12 @@
             <tr>
                 <th>Name</th>
                 <th>Status</th>
-                <th>Action</th>
+                <th></th>
             </tr>
             @foreach ($langs as $key => $lang)
                 <tr>
                     <td>{{ $lang->name }}</td>
-                    <td>{{ $lang->status }}</td>
+                    <td>{{ \App\Helpers\StatusHelper::langStatusGet($lang->status) }}</td>
                     <td>
                         <div class="btn-group">
                             <a class="" style="margin-right: 10px" href="{{ route('lang.show',$lang->id) }}">

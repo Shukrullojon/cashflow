@@ -25,7 +25,7 @@
 
                 <div class="form-group">
                     <strong>Status</strong>
-                    {{ $card->status }}
+                    {{ \App\Helpers\StatusHelper::cardStatusGet($card->status) }}
                 </div>
             </div>
         </div>

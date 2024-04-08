@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <strong>Status</strong>
-                    {{ $circle->status }}
+                    {{ \App\Helpers\StatusHelper::circleStatusGet($circle->status) }}
                 </div>
             </div>
         </div>

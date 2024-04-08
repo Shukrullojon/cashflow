@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Bilet;
+use App\Models\Card;
 use Illuminate\Http\Request;
 
 class BiletController extends Controller
@@ -11,7 +13,10 @@ class BiletController extends Controller
      */
     public function index()
     {
-        //
+        $bilets = Bilet::latest()->paginate(20);
+        return view('bilet.index',[
+            'bilets' => $bilets,
+        ]);
     }
 
     /**
@@ -19,7 +24,10 @@ class BiletController extends Controller
      */
     public function create()
     {
-        //
+        $cards = Card::all()->pluck('name','id');
+        return view('bilet.create',[
+            'cards' => $cards,
+        ]);
     }
 
     /**
@@ -27,7 +35,13 @@ class BiletController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'card_id' => 'required',
+            'name' => 'required',
+            'info' => 'required',
+        ]);
+        Bilet::create($request->all());
+        return redirect()->route('bilet.index')->with('success','Bilet created successfully');
     }
 
     /**
@@ -35,7 +49,10 @@ class BiletController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $bilet = Bilet::find($id);
+        return view('bilet.show',[
+            'bilet' => $bilet,
+        ]);
     }
 
     /**
@@ -43,7 +60,12 @@ class BiletController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $bilet = Bilet::find($id);
+        $cards = Card::all()->pluck('name','id');
+        return view('bilet.edit',[
+            'cards' => $cards,
+            'bilet' => $bilet,
+        ]);
     }
 
     /**
@@ -51,7 +73,14 @@ class BiletController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $this->validate($request, [
+            'card_id' => 'required',
+            'name' => 'required',
+            'info' => 'required',
+        ]);
+        Bilet::where('id',$id)->update($request->all());
+        return redirect()->route('bilet.index')
+            ->with('success','Bilet updated successfully');
     }
 
     /**
@@ -59,6 +88,7 @@ class BiletController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Bilet::where('id',$id)->delete();
+        return redirect()->route('bilet.index')->with('success','Bilet deleted successfully');
     }
 }
